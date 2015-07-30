@@ -1,7 +1,7 @@
 global:
-  scrape_interval: '15s'
-  scrape_timeout: '30s'
-  evaluation_interval: '15s'
+  scrape_interval: '5s'
+  scrape_timeout: '10s'
+  evaluation_interval: '5s'
   labels:
         monitor: 'maestro'
 
@@ -11,8 +11,6 @@ scrape_configs:
   - targets: ['localhost:9090']
 
 - job_name: 'node-exporter'
-  scrape_interval: '5s'
-  evaluation_interval: '5s'
   target_groups:
   - targets: [
     'core-01.node-exporter.metrics.prod.crisidev.maestro.io:9100',
@@ -21,8 +19,6 @@ scrape_configs:
   ]
 
 - job_name: 'cadvisor'
-  scrape_interval: '5s'
-  evaluation_interval: '5s'
   target_groups:
     - targets: [
       'cadvisor-core-01.maestro.io:80',
